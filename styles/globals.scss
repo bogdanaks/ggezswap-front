@@ -1,0 +1,55 @@
+html,
+body {
+  color: #fff;
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #030303;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #fff;
+  background: #7668cb;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  outline: 0;
+  background-color: transparent;
+  padding: 0 20px;
+  line-height: 44px;
+  border: 1px solid rgba(138, 138, 160, 0.3);
+  border-radius: 8px;
+  color: #EBEBEB;
+  font-size: 14px;
+}

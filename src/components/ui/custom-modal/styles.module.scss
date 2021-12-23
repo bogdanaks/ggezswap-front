@@ -1,0 +1,27 @@
+.overlayModal {
+  position: fixed;
+  background-color: rgba(52, 52, 68, 0.6);
+  backdrop-filter: blur(1px);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  z-index: 100;
+  overflow: hidden;
+  box-shadow: rgb(14 14 44 / 10%) 0 20px 36px -8px, rgb(0 0 0 / 5%) 0px 1px 1px;
+  border: 1px solid rgb(231, 227, 235);
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  inset: 40px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  padding: 20px;
+  min-width: 300px;
+  font-size: 18px;
+  color: #14141F;
+  font-weight: 700;
+}

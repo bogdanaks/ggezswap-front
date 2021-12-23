@@ -1,20 +1,32 @@
 {
   "name": "ggezswap",
   "private": true,
+  "proxy": "http://localhost:3000",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/walletconnect-connector": "^6.2.8",
+    "axios": "^0.24.0",
+    "classnames": "^2.3.1",
+    "js-cookie": "^3.0.1",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-modal": "^3.14.4",
+    "sass": "^1.45.0",
+    "web3": "^1.6.1"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.1",
     "@types/node": "16.11.13",
     "@types/react": "17.0.37",
+    "@types/react-modal": "^3.13.1",
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
     "typescript": "4.5.4"

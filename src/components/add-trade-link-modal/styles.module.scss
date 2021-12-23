@@ -1,0 +1,25 @@
+.wrapper {
+  text-align: center;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.addLinkHeader {
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  color: #030303;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 100px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}

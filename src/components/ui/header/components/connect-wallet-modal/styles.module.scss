@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnWallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  span {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
