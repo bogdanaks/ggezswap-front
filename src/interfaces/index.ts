@@ -40,7 +40,12 @@ export interface ItemInventory {
   type: number
 }
 
-export enum InventoryBlockType {
-  TRADE = 'trade',
-  INVENTORY = 'inventory',
+export enum InventoryBlockType { // TODO maybe delete
+  USER_TRADE = 'user_trade',
+  GGEZ_TRADE = 'ggez_trade',
+}
+
+export interface Game {
+  title: string
+  app_id: number
 }

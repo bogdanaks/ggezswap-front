@@ -15,7 +15,7 @@ const InventoryItem = ({ item, onClickItem }: InventoryItemProps) => {
     <li className={styles.innerBlock} onClick={() => onClickItem(item)}>
       <div className={styles.itemBlock}>
         <div className={styles.itemBlock__imgBlock}>
-          <Image src={item.steamImg} layout={'fill'} alt="Item" className={styles.img} />
+          <Image src={item.steamImg} layout="responsive" alt="Item" height={90} width={100} />
         </div>
         <p className={styles.desc}>{item.fullName}</p>
       </div>

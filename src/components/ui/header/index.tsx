@@ -1,40 +1,37 @@
 import React from 'react'
-import Image from 'next/image'
 import cookie from 'js-cookie'
-import cn from 'classnames'
 import Link from 'next/link'
 
 import { loginSteam } from '@api'
 import { SteamPlayer } from '@interfaces'
 
-import ConnectWalletModal from '@components/ui/header/components/connect-wallet-modal'
 import { useWeb3React } from '@web3-react/core'
+import { injected } from '@utils/connectors'
+import ProfileButton from '@components/ui/header/components/profile-button'
 
 import styles from './styles.module.scss'
-import { injected } from '@utils/connectors'
+import Image from 'next/image'
 
 const Header = () => {
-  const [steamProfile, setSteamProfile] = React.useState<SteamPlayer>()
-  const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = React.useState(false)
-  const { account, error, active, activate } = useWeb3React()
+  const [steamProfile, setSteamProfile] = React.useState<SteamPlayer | null>()
+  const { account, error, active, activate, deactivate } = useWeb3React()
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false)
 
-  const handleAuthSteamClick = async () => {
+  const handleAuthSteam = async () => {
     await loginSteam()
   }
 
-  const handleAuthWalletClick = async () => {
-    setIsOpenConnectWalletModal(true)
+  const handleDisconnectWallet = () => { // TODO doesnt work
+    deactivate()
   }
 
-  const handleCloseModal = (e: any) => {
-    e.stopPropagation()
-    setIsOpenConnectWalletModal(false)
+  const handleDisconnectSteam = () => {
+    cookie.remove('steamProfile')
+    setSteamProfile(null)
   }
 
-  const formattingAddress = (address: string) => {
-    const first = address.slice(0, 2)
-    const last = address.slice(-4)
-    return `${first}...${last}`
+  const handleModelClick = () => {
+    setIsOpenMenu(!isOpenMenu)
   }
 
   React.useEffect(() => {
@@ -62,12 +59,12 @@ const Header = () => {
   }, [active, activate, error])
 
   React.useEffect(() => {
-    setSteamProfile(JSON.parse(cookie.get("steamProfile") as string))
-  }, [])
+    const steamProfile = cookie.get("steamProfile")
 
-  if (!steamProfile) {
-    return <p>Loading</p>
-  }
+    if (steamProfile) {
+      setSteamProfile(JSON.parse(steamProfile))
+    }
+  }, [])
 
   return (
     <div className={styles.wrapper}>
@@ -76,27 +73,43 @@ const Header = () => {
           <a>GGEZSWAP</a>
         </Link>
       </h1>
-      {account ? (
-        <div className={styles.walletBlock}>
-          <p>{formattingAddress(account)}</p>
+      <ul className={styles.links}>
+        <li className={styles.links__item}>
+          <Link href="/store/730">
+            <a>Store</a>
+          </Link>
+        </li>
+        <li className={styles.links__item}>
+          <Link href="/sell">
+            <a>Sell</a>
+          </Link>
+        </li>
+        <li className={styles.links__item}>
+          <Link href="/faq">
+            <a>FAQ</a>
+          </Link>
+        </li>
+      </ul>
+      {account && steamProfile ? (
+        <div className={styles.avatarBlock} onClick={handleModelClick}>
+          <div className={styles.balanceBlock}>
+            <span>1.312 GG</span>
+          </div>
+          <Image className={styles.avatarImg} src={steamProfile!.avatarmedium} width={40} height={40} alt="Avatar" />
         </div>
       ) : (
-        <button onClick={handleAuthWalletClick} className={cn(styles.buttonHeader, styles.buttonWallet)}>
-          <span>Connect Wallet</span>
-          <ConnectWalletModal isOpen={isOpenConnectWalletModal} onCloseModal={handleCloseModal} />
+        <button onClick={handleModelClick} className={styles.buttonHeader}>
+          Connect
         </button>
       )}
-      {steamProfile ? (
-        <div className={styles.avatarBlock}>
-          <h4>{steamProfile.personaname}</h4>
-          <Image className={styles.avatarImg} src={steamProfile.avatarmedium} width={40} height={40} alt="Avatar" />
-        </div>
-      ) : (
-        <button onClick={handleAuthSteamClick} className={cn(styles.buttonHeader, styles.buttonSteam)}>
-          <Image src='/assets/images/icons/steam.svg' alt={'Steam'} width={30} height={30} className={styles.imgSteam} />
-          <span>SignIn Steam</span>
-        </button>
-      )}
+      <ProfileButton
+        account={account}
+        steamProfile={steamProfile}
+        isOpenMenu={isOpenMenu}
+        onAuthSteam={handleAuthSteam}
+        onDisconnectWallet={handleDisconnectWallet}
+        onDisconnectSteam={handleDisconnectSteam}
+      />
     </div>
   )
 }

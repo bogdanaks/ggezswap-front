@@ -7,17 +7,20 @@
 
 .btnWallet {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
   padding: 10px 20px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
 
   &:last-child {
     margin-bottom: 0;
   }
 
   span {
-    margin-top: 10px;
+    margin-left: 20px;
     font-weight: 600;
     font-size: 15px;
   }

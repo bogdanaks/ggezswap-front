@@ -1,16 +1,13 @@
 import React from 'react'
-
 import Header from '@components/ui/header'
 
-import styles from './styles.module.scss'
-
-const StorePage = () => {
+const FaqPage = () => {
   return (
     <div>
       <Header />
-      StorePage
+      FaqPage
     </div>
   )
 }
 
-export default StorePage
+export default FaqPage

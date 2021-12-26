@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from '@components/ui/header'
 
-const SellPage = () => {
+const ItemsPage = () => {
   return (
     <div>
       <Header />
-      SellPage
+      ItemsPage
     </div>
   )
 }
 
-export default SellPage
+export default ItemsPage

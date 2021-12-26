@@ -15,7 +15,7 @@ const MainBlock = () => {
         <Link href="/store">
           <a className={cn(styles.btnsBlock__btn, styles.btnBuy)}>Buy item</a>
         </Link>
-        <Link href="/sell">
+        <Link href="/trade">
           <a className={cn(styles.btnsBlock__btn, styles.btnSell)}>Sell item</a>
         </Link>
       </div>

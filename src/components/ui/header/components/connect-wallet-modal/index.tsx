@@ -13,10 +13,11 @@ interface ConnectWalletModalProps {
 }
 
 const ConnectWalletModal = ({ isOpen, onCloseModal }: ConnectWalletModalProps) => {
-  const { account, activate, deactivate } = useWeb3React()
-  const connectWallet = async () => {
+  const { activate, deactivate } = useWeb3React()
+  const connectWallet = async (e: any) => {
     try {
       await activate(injected)
+      onCloseModal(e)
     } catch (err) {
       console.error("Error connect: ", err)
     }
@@ -45,7 +46,6 @@ const ConnectWalletModal = ({ isOpen, onCloseModal }: ConnectWalletModalProps) =
         <button className={styles.btnWallet} onClick={connectWallet}>
           <Image src="/assets/images/icons/metamask.svg" alt="MetaMask" width={50} height={50} />
           <span>Metamask</span>
-          {account ? <p>Connect with ${account}</p> : <p>Not connected</p>}
         </button>
       </div>
     </CustomModal>

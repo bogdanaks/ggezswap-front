@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  max-height: calc(100vh - 90px);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px;
+  padding: 0 15px;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 15px 15px;
+  border-radius: 5px;
+}
+
+.containerItems {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.itemsListTrade {
+  overflow: scroll;
+  display: grid;
+  grid-gap: 10px;
+  height: 45%;
+  grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+  grid-template-rows: repeat(auto-fill, 124px);
+}
+
+.itemsListCartContainer {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .buttonBuy {
+      width: 120px;
+      justify-content: center;
+      height: 35px;
+    }
+  }
+
+  .price {
+    margin: 15px;
+    font-size: 24px;
+  }
+}
+
+.itemsListCart {
+  overflow: scroll;
+  display: grid;
+  grid-gap: 10px;
+  height: 140px;
+  grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+  grid-template-rows: repeat(auto-fill, 124px);
+}

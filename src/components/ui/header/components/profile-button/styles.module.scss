@@ -1,0 +1,97 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapperWindowOwner {
+  display: none;
+  z-index: 999;
+}
+
+.wrapperWindowInner {
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #2a2c2e;
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 30%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  .connectBtn {
+    width: 100%;
+    justify-content: center;
+    height: 35px;
+  }
+
+  .steamBtn {
+    height: 35px;
+    width: 100%;
+    margin-bottom: 15px;
+    justify-content: center;
+
+    &__desc {
+      margin-left: 10px;
+    }
+  }
+}
+
+.personName {
+  margin: 10px 0;
+}
+
+.addressText {
+  color: #999999;
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+.balanceBlock {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  align-items: center;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+
+    &__title {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      color: #999999;
+    }
+
+    &__balance {
+      font-weight: 700;
+      font-size: 18px;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    margin: 12px 0;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+  }
+}
+
+.isOpen {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  position: absolute;
+  top: 20px;
+  right: 0;
+}

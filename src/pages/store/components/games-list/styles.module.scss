@@ -1,0 +1,24 @@
+.wrapperList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 60px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 100%,.025);
+  overflow: hidden;
+  display: none;
+}
+
+.wrapperSelectItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  .arrow {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
